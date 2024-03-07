@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ChaseTriggerZone : MonoBehaviour
 {
-    public bool _isPlayerDetected;
+    public bool _isPlayerDetected { get; private set; }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

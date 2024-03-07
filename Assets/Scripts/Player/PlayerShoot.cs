@@ -4,11 +4,13 @@ namespace Scripts.Player
 {
     public class PlayerShoot : MonoBehaviour
     {
+        [Header("Снаряд")]
         [SerializeField] private FireBallPlayer _fireBall;
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            bool isClickMouse = Input.GetKeyDown(KeyCode.Mouse0);
+            if (isClickMouse)
                 Instantiate(_fireBall, transform.position, Quaternion.identity);
         }
     }

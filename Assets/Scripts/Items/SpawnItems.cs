@@ -10,7 +10,8 @@ public class SpawnItems : MonoBehaviour
     {
         _spawnPoints = GetComponentsInChildren<Transform>();
 
-        for (int i = 0; i < _spawnPoints.Length; i++) {
+        for (int i = 0; i < _spawnPoints.Length; i++) 
+        {
             Instantiate(_object, _spawnPoints[i]);
         }
     }

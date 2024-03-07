@@ -18,8 +18,8 @@ using UnityEngine;
             transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + _offset);
 
             _rigidbody2D.velocity = transform.up * _speed;
-            Invoke("DestrroyFireBall", _timeDestroy);
-        }
+            Invoke(nameof(DestrroyFireBall), _timeDestroy);
+    }
 
         private void DestrroyFireBall()
         {

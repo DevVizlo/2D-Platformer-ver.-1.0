@@ -6,11 +6,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _healthEnemy = 2f;
     [SerializeField] private float _tookDamage = 1f;
     [Header("Цель и снаряд")]
-    [SerializeField] private Transform _targetBall;
-    [SerializeField] private FireBallEnemy _Fireball;
+    [SerializeField] private Transform _receiveTargetBall;
+    [SerializeField] private FireBallEnemy _ReceiveFireball;
 
-    public Transform ReceiveBallTarget { get { return _targetBall; } }
-    public FireBallEnemy ReceiveBall { get { return _Fireball; } }
+    public Transform ReceiveFireballTarget => _receiveTargetBall;
+    public FireBallEnemy ReceiveFireball => _ReceiveFireball;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

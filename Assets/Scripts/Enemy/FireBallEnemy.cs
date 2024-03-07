@@ -18,8 +18,8 @@ using UnityEngine;
         private void Start()
         {
         _startPositionTarget = _target.position;
-            Invoke("DestrroyFireBall", _timeDestroy);
-        }
+        Invoke(nameof(DestrroyFireBall), _timeDestroy);
+    }
 
         private void Update()
         {
@@ -28,6 +28,6 @@ using UnityEngine;
 
         private void DestrroyFireBall()
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }

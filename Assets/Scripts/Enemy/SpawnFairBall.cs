@@ -34,8 +34,8 @@ public class SpawnFairBall : MonoBehaviour
             {
                 yield return wait;
 
-                FireBallEnemy moverToTarget = Instantiate(_enemy.ReceiveBall, _enemy.transform.position, Quaternion.identity);
-                moverToTarget.SetTarget(_enemy.ReceiveBallTarget);
+                FireBallEnemy moverToTarget = Instantiate(_enemy.ReceiveFireball, _enemy.transform.position, Quaternion.identity);
+                moverToTarget.SetTarget(_enemy.ReceiveFireballTarget);
             }
         }
 
