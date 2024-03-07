@@ -9,14 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2632410082151042637}
-  - component: {fileID: 1488288024040661815}
   - component: {fileID: 6972749211219989761}
+  - component: {fileID: 7242958711200041670}
   - component: {fileID: 6181235315994515680}
   - component: {fileID: 1806199449674146072}
   - component: {fileID: 8593511642424429727}
   - component: {fileID: 4749246105074948358}
   m_Layer: 0
-  m_Name: Coin
+  m_Name: Heart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,27 +37,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1488288024040661815
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5989830491697935606}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 923f011f04da357429a52c32a0db1a1c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &6972749211219989761
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 762988351, guid: b9c20fcc0866b7c4f80f92e79fc9bfc1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b5006f67df843e45aaf5726074f9043, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -110,6 +89,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7242958711200041670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5989830491697935606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0323b2b86a487549a9c5c9250cf09db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6181235315994515680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,18 +148,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0017137527, y: -0.0017138273}
+  m_Offset: {x: 0.014722824, y: 0.040668555}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.18, y: 0.18}
+    oldSize: {x: 0.64, y: 0.64}
     newSize: {x: 0.18, y: 0.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1491518, y: 0.15600657}
+  m_Size: {x: 0.22216797, y: 0.19209455}
   m_EdgeRadius: 0
 --- !u!82 &8593511642424429727
 AudioSource:
@@ -180,7 +171,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8fb05d3b0cd8746419d6ea29f17bfa99, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9ac9881247f350c4ab981a84fb7d5cae, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.518
   m_Pitch: 1
