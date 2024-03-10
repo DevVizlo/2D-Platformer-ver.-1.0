@@ -1,15 +1,27 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-    public class Player : MonoBehaviour
+public class Player : MonoBehaviour
+{
+    [Header("«доровье и урон, ’илЅар")]
+    [SerializeField] private float _maxHealth = 0.99f;
+    [SerializeField] private float _healthPlayer = 0.99f;
+    [SerializeField] private float _tookDamage = 0.33f;
+    [SerializeField] private float _tookHealth = 0.33f;
+    [SerializeField] private HealthBar _healthBar;
+    [SerializeField] private CoinCounter _coin;
+
+    public float Health => _healthPlayer;
+    public float MaxHealth => _maxHealth;
+    public event UnityAction Died;
+
+    private void Start()
     {
-        [Header("«доровье и урон")]
-        [SerializeField] private float _maxHealth = 3f;
-        [SerializeField] private float _healthPlayer = 3f;
-        [SerializeField] private float _tookDamage = 1f;
-        [SerializeField] private float _tookHealth = 1f;
+        _healthPlayer = _maxHealth;
+    }
 
-        private void OnTriggerEnter2D(Collider2D collision)
-        {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
             if (collision.TryGetComponent(out FireBallEnemy fireBall))
             {
                 _healthPlayer -= _tookDamage;
@@ -17,6 +29,8 @@ using UnityEngine;
 
                 if (_healthPlayer <= 0)
                     Die();
+
+                _healthBar.RefreshHeart();
             }
 
         if (collision.TryGetComponent(out Heart heart))
@@ -24,13 +38,25 @@ using UnityEngine;
             _healthPlayer += _tookHealth;
             Destroy(heart.gameObject);
 
-            if (_healthPlayer >= _tookHealth)
+            if (_healthPlayer >= _maxHealth)
                 _healthPlayer = _maxHealth;
+
+            _healthBar.RefreshHeart();
+        }
+
+        if (collision.TryGetComponent(out Coin coin))
+        {
+            _coin.GetCoin();
+        }
+        
+        if(collision.TryGetComponent(out PlayerDeathTrigger playerDeath))
+        {
+            Die();
         }
     }
 
-        private void Die()
-        {
-            Destroy(gameObject);
-        }
+    private void Die()
+    {
+        Died?.Invoke();
     }
+}
