@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public float MaxHealth => _maxHealth;
     public event UnityAction Died;
 
+    private void Die() => Died?.Invoke();
+
     private void Start()
     {
         _healthPlayer = _maxHealth;
@@ -45,18 +47,10 @@ public class Player : MonoBehaviour
         }
 
         if (collision.TryGetComponent(out Coin coin))
-        {
             _coin.GetCoin();
-        }
+
         
         if(collision.TryGetComponent(out PlayerDeathTrigger playerDeath))
-        {
             Die();
-        }
-    }
-
-    private void Die()
-    {
-        Died?.Invoke();
     }
 }

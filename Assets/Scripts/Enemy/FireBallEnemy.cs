@@ -10,24 +10,16 @@ using UnityEngine;
 
         private Transform _target;
 
-        public void SetTarget(Transform target)
-        {
-            _target = target;
-        }
+        public void SetTarget(Transform target) => _target = target;
 
-        private void Start()
+    private void Start()
         {
         _startPositionTarget = _target.position;
-        Invoke(nameof(DestrroyFireBall), _timeDestroy);
+        Destroy(gameObject, _timeDestroy);
     }
 
         private void Update()
         {
             transform.position = Vector3.MoveTowards(transform.position, _startPositionTarget, _speed * Time.deltaTime);
-        }
-
-        private void DestrroyFireBall()
-        {
-            Destroy(gameObject);
         }
     }

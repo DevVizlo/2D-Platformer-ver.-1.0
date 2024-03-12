@@ -8,7 +8,6 @@ public class FireBallPlayer : MonoBehaviour
     [SerializeField] private float _speed = 3f;
     [SerializeField] private float _offset = 1f;
 
-    private AudioSource _fireBallSound;
     private Rigidbody2D _rigidbody2D;
 
     private void Start()
@@ -20,11 +19,6 @@ public class FireBallPlayer : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, rotateZ + _offset);
 
         _rigidbody2D.velocity = transform.up * _speed;
-        Invoke(nameof(DestrroyFireBall), _timeDestroy);
+        Destroy(gameObject, _timeDestroy);
     }
-
-        private void DestrroyFireBall()
-        {
-            Destroy(this.gameObject);
-        }
-    }
+}

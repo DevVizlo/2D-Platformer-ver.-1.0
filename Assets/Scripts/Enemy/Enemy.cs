@@ -18,6 +18,8 @@ public class Enemy : MonoBehaviour
     public Transform ReceiveFireballTarget => _receiveTargetBall;
     public FireBallEnemy ReceiveFireball => _ReceiveFireball;
 
+    private void Die() => Destroy(gameObject);
+
     private void Start()
     {
         _healthEnemy = _maxHealth;
@@ -34,10 +36,5 @@ public class Enemy : MonoBehaviour
             if (_healthEnemy <= 0)
                 Die();
         }
-    }
-
-    private void Die()
-    {
-        Destroy(gameObject);
     }
 }

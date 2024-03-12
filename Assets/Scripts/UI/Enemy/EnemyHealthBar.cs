@@ -13,8 +13,5 @@ public class EnemyHealthBar : MonoBehaviour
         _image = GetComponent<Image>();
     }
 
-    public void RefreshHeart()
-    {
-        _image.fillAmount = _enemy.Health / _enemy.MaxHealth;
-    }
+    public void RefreshHeart() => _image.fillAmount = _enemy.Health / _enemy.MaxHealth;
 }
