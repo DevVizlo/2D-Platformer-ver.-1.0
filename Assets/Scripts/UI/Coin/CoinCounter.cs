@@ -14,7 +14,7 @@ public class CoinCounter : MonoBehaviour
         _textBar = GetComponent<Text>();
     }
 
-    public void GetCoin()
+    public void ReceivingCoin()
     {
         _quantityCoin += _forOneCoin;
 

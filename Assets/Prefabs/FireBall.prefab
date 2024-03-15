@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8359871741466844856}
   - component: {fileID: 3118897455050357931}
   m_Layer: 0
-  m_Name: FireBallEnemy
+  m_Name: FireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1544737478935248702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29342d371ce4006488881fae5d1e020c, type: 3}
+  m_Script: {fileID: 11500000, guid: 6db4c7e2606bf0348a2c613523ef6724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _timeDestroy: 5

@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class FireBallPlayer : MonoBehaviour
 {
-    [Header("Время действия, скорость, направление")]
+    [Header("Время удаления, скорость и наклон")]
     [SerializeField] private float _timeDestroy = 6f;
     [SerializeField] private float _speed = 3f;
     [SerializeField] private float _offset = 1f;

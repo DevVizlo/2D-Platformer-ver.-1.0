@@ -12,13 +12,13 @@ public class GameOverScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        _player.Died += OnDied;
+        _player.DiedEvent += OnDied;
         _restartButton.onClick.AddListener(OnRestartButtonClick);
     }
 
     private void OnDisable()
     {
-        _player.Died -= OnDied;
+        _player.DiedEvent -= OnDied;
     }
 
     private void Start()

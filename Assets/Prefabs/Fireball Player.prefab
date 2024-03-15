@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3210369545457526351}
   - component: {fileID: 4761986989071312958}
   - component: {fileID: 8997414164115006793}
-  - component: {fileID: 6959186790977325815}
+  - component: {fileID: 5791682448200456239}
   - component: {fileID: 5505453085021021761}
   - component: {fileID: 2004421435997446098}
   - component: {fileID: 15009725543674183}
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3903174691222391313}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.24820513, w: 0.9687075}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.046296682, y: 0.043054197, z: 1}
   m_ConstrainProportionsScale: 0
@@ -110,7 +110,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6959186790977325815
+--- !u!114 &5791682448200456239
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

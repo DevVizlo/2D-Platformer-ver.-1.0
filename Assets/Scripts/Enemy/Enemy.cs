@@ -1,19 +1,16 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+[RequireComponent(typeof(HealthCharacter))]
+public class Enemy : HealthCharacter
 {
     [Header("Здоровье и урон")]
-    [SerializeField] private float _maxHealth = 0.99f;
-    [SerializeField] private float _healthEnemy = 0.99f;
     [SerializeField] private float _tookDamage = 0.33f;
-    [SerializeField] private EnemyHealthBar _healthBar;
+    [SerializeField] private HealthBar _healthBar;
+
     [Header("Цель и снаряд")]
     [SerializeField] private Transform _receiveTargetBall;
     [SerializeField] private FireBallEnemy _ReceiveFireball;
 
-
-    public float Health => _healthEnemy;
-    public float MaxHealth => _maxHealth;
 
     public Transform ReceiveFireballTarget => _receiveTargetBall;
     public FireBallEnemy ReceiveFireball => _ReceiveFireball;
@@ -22,18 +19,18 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        _healthEnemy = _maxHealth;
+        _health = _maxHealth;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out FireBallPlayer fireBall))
         {
-            _healthEnemy -= _tookDamage;
-            _healthBar.RefreshHeart();
+            _health -= _tookDamage;
             Destroy(fireBall.gameObject);
+            ChangingHealth?.Invoke();
 
-            if (_healthEnemy <= 0)
+            if (_health <= 0)
                 Die();
         }
     }

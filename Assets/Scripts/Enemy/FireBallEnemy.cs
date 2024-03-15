@@ -12,11 +12,11 @@ using UnityEngine;
 
         public void SetTarget(Transform target) => _target = target;
 
-    private void Start()
+        private void Start()
         {
-        _startPositionTarget = _target.position;
-        Destroy(gameObject, _timeDestroy);
-    }
+            _startPositionTarget = _target.position;
+            Destroy(gameObject, _timeDestroy);
+        }
 
         private void Update()
         {
