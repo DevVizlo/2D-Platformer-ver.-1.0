@@ -8,19 +8,19 @@ public class HealthBar : MonoBehaviour
 
     private Image _image;
 
-    private void Start()
+    private void Awake()
     {
         _image = GetComponent<Image>();
     }
 
     private void OnEnable()
     {
-        _cheracter.ChangingHealth += RefreshHeart;
+        _cheracter.ChangedHealth += RefreshHeart;
     }
 
     private void OnDisable()
     {
-        _cheracter.ChangingHealth -= RefreshHeart;
+        _cheracter.ChangedHealth -= RefreshHeart;
     }
 
     public void RefreshHeart()

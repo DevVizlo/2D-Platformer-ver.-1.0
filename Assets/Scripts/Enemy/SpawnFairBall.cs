@@ -22,7 +22,7 @@ public class SpawnFairBall : MonoBehaviour
             if (collision.TryGetComponent(out Player player))
             {
                 if (_coroutine != null)
-                    StopCorutin();
+                FinishCorutin();
             }
         }
 
@@ -39,7 +39,7 @@ public class SpawnFairBall : MonoBehaviour
             }
         }
 
-    private void StopCorutin()
+    private void FinishCorutin()
     {
         StopCoroutine(_coroutine);
         _coroutine = null;

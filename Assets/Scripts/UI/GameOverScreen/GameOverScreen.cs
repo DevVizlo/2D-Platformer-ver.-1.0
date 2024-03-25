@@ -10,6 +10,12 @@ public class GameOverScreen : MonoBehaviour
 
     private CanvasGroup _gameOverGroup;
 
+    private void Awake()
+    {
+        _gameOverGroup = GetComponent<CanvasGroup>();
+        _gameOverGroup.alpha = 0;
+    }
+
     private void OnEnable()
     {
         _player.DiedEvent += OnDied;
@@ -19,12 +25,6 @@ public class GameOverScreen : MonoBehaviour
     private void OnDisable()
     {
         _player.DiedEvent -= OnDied;
-    }
-
-    private void Start()
-    {
-        _gameOverGroup = GetComponent<CanvasGroup>();
-        _gameOverGroup.alpha = 0;
     }
 
     private void OnDied()

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(HealthCharacter))]
-public class Enemy : HealthCharacter
+public class Enemy : MonoBehaviour
 {
     [Header("Здоровье и урон")]
     [SerializeField] private float _tookDamage = 0.33f;
@@ -15,23 +15,25 @@ public class Enemy : HealthCharacter
     public Transform ReceiveFireballTarget => _receiveTargetBall;
     public FireBallEnemy ReceiveFireball => _ReceiveFireball;
 
-    private void Die() => Destroy(gameObject);
+    private HealthCharacter _healthCheracter;
 
-    private void Start()
+    private void Awake()
     {
-        _health = _maxHealth;
+        _healthCheracter = GetComponent<HealthCharacter>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent(out FireBallPlayer fireBall))
         {
-            _health -= _tookDamage;
+            _healthCheracter.CheracterDamage(_tookDamage);
             Destroy(fireBall.gameObject);
-            ChangingHealth?.Invoke();
+            _healthCheracter.ChangedHealth?.Invoke();
 
-            if (_health <= 0)
+            if (_healthCheracter.Health <= 0)
                 Die();
         }
     }
+
+    private void Die() => Destroy(gameObject);
 }

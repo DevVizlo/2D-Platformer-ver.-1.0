@@ -6,7 +6,7 @@ public class ChaseTriggerZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Player player))
+        if (collision.TryGetComponent(out Player _player))
         {
             _isPlayerDetected = true;
         }
@@ -14,7 +14,7 @@ public class ChaseTriggerZone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Player player))
+        if (collision.TryGetComponent(out Player _player))
         {
             _isPlayerDetected = false;
         }
