@@ -5,7 +5,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class CoinCounter : MonoBehaviour
 {
-    [SerializeField] int _CoinValue = 1;
+    [SerializeField] private int _CoinValue = 1;
     private int _quantityCoin = 0;
     private Text _textBar;
 
@@ -14,7 +14,7 @@ public class CoinCounter : MonoBehaviour
         _textBar = GetComponent<Text>();
     }
 
-    public void ReceivingCoin()
+    public void ReceivCoin()
     {
         _quantityCoin += _CoinValue;
 

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class SpawnFairBall : MonoBehaviour
+public class FairBall : MonoBehaviour
 {
         [Header("Время перезарядки")]
         [SerializeField] private float _timeSpawn = 2f;

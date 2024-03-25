@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.TryGetComponent(out FireBallPlayer fireBall))
         {
-            _healthCheracter.CheracterDamage(_tookDamage);
+            _healthCheracter.Damage(_tookDamage);
             Destroy(fireBall.gameObject);
             _healthCheracter.ChangedHealth?.Invoke();
 

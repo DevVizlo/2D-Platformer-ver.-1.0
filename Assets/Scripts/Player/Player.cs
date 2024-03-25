@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     {
             if (collision.TryGetComponent(out FireBallEnemy fireBall))
             {
-            _healthCheracter.CheracterDamage(_tookDamage);
+            _healthCheracter.Damage(_tookDamage);
                 Destroy(fireBall.gameObject);
 
                 if (_healthCheracter.Health <= 0)
@@ -34,14 +34,14 @@ public class Player : MonoBehaviour
 
         if (collision.TryGetComponent(out Heart heart))
         {
-            _healthCheracter.CheracterHeal(_tookHealth);
+            _healthCheracter.Heal(_tookHealth);
             Destroy(heart.gameObject);
 
             _healthCheracter.ChangedHealth?.Invoke();
         }
 
         if (collision.TryGetComponent(out Coin coin))
-            _coin.ReceivingCoin();
+            _coin.ReceivCoin();
 
         if(collision.TryGetComponent(out PlayerDeathTrigger playerDeath))
             Die();

@@ -16,12 +16,12 @@ public class HealthCharacter : MonoBehaviour
         _health = _maxHealth;
     }
 
-    public void CheracterDamage(float damage)
+    public void Damage(float damage)
     {
         _health -= damage;
     }
 
-    public void CheracterHeal(float heal)
+    public void Heal(float heal)
     {
         _health += heal;
 
