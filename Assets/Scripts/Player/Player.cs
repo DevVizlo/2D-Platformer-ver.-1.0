@@ -9,8 +9,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float _tookHealth = 0.33f;
     [SerializeField] private HealthBar _healthBar;
     [SerializeField] private CoinCounter _coin;
+    [SerializeField] private Vampirizm _spell;
+
 
     private HealthCharacter _healthCheracter;
+    private float _hpDeath = 0.32f;
 
     public event UnityAction DiedEvent;
 
@@ -19,18 +22,25 @@ public class Player : MonoBehaviour
         _healthCheracter = GetComponent<HealthCharacter>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Update()
+    {
+        bool _isVampirizmActivation = Input.GetKeyDown(KeyCode.R);
+        if (_isVampirizmActivation)
+            _spell.ActivateSpell();
+    }
+
+    public void TriggerCharacter(Collider2D collision)
     {
             if (collision.TryGetComponent(out FireBallEnemy fireBall))
             {
             _healthCheracter.Damage(_tookDamage);
                 Destroy(fireBall.gameObject);
 
-                if (_healthCheracter.Health <= 0)
+                if (_healthCheracter.Health <= _hpDeath)
                     Die();
 
             _healthCheracter.ChangedHealth?.Invoke();
-        }
+            }
 
         if (collision.TryGetComponent(out Heart heart))
         {

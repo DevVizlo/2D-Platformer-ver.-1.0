@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
     public FireBallEnemy ReceiveFireball => _ReceiveFireball;
 
     private HealthCharacter _healthCheracter;
+    private float _hpDeath = 0.32f;
 
     private void Awake()
     {
@@ -26,13 +27,18 @@ public class Enemy : MonoBehaviour
     {
         if (collision.TryGetComponent(out FireBallPlayer fireBall))
         {
-            _healthCheracter.Damage(_tookDamage);
             Destroy(fireBall.gameObject);
-            _healthCheracter.ChangedHealth?.Invoke();
-
-            if (_healthCheracter.Health <= 0)
-                Die();
+            EnemyDamage(_tookDamage);
         }
+    }
+
+    public void EnemyDamage(float resultDamage)
+    {
+        _healthCheracter.Damage(resultDamage);
+        if (_healthCheracter.Health <= _hpDeath)
+            Die();
+
+        _healthCheracter.ChangedHealth?.Invoke();
     }
 
     private void Die() => Destroy(gameObject);

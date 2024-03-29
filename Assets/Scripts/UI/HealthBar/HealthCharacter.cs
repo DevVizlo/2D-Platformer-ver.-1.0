@@ -27,5 +27,7 @@ public class HealthCharacter : MonoBehaviour
 
         if (_health >= _maxHealth)
             _health = _maxHealth;
+
+        ChangedHealth?.Invoke();
     }
 }
