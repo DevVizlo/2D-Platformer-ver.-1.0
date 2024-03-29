@@ -7,6 +7,7 @@ public class Vampirizm : MonoBehaviour
     [SerializeField] private float _spellDuration;
 
     public bool _isEnemyDetected { get; private set; }
+    
     private float _actionTime = 6f;
     private float _recharge = 8f;
     private float _nextActionTime = 0f;
@@ -69,7 +70,6 @@ public class Vampirizm : MonoBehaviour
 
                 yield return _damageRate;
         }
-
         yield return _waitCooldown;
     }
 }
