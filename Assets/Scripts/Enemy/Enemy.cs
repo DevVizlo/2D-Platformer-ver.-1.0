@@ -28,11 +28,11 @@ public class Enemy : MonoBehaviour
         if (collision.TryGetComponent(out FireBallPlayer fireBall))
         {
             Destroy(fireBall.gameObject);
-            EnemyDamage(_tookDamage);
+            ReceivedDamage(_tookDamage);
         }
     }
 
-    public void EnemyDamage(float resultDamage)
+    public void ReceivedDamage(float resultDamage)
     {
         _healthCheracter.Damage(resultDamage);
         if (_healthCheracter.Health <= _hpDeath)
