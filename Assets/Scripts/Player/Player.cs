@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(HealthCharacter))]
 public class Player : MonoBehaviour
 {
+    private const string VampirizmAnim = "Vampirizm";
     [Header("«доровье и урон, ’илЅар")]
     [SerializeField] private float _tookDamage = 0.33f;
     [SerializeField] private float _tookHealth = 0.33f;
@@ -11,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private CoinCounter _coin;
     [SerializeField] private Vampirizm _spell;
 
-
+    private Animator _animator;
     private HealthCharacter _healthCheracter;
     private float _hpDeath = 0.32f;
 
@@ -20,13 +22,17 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         _healthCheracter = GetComponent<HealthCharacter>();
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         bool _isVampirizmActivation = Input.GetKeyDown(KeyCode.R);
         if (_isVampirizmActivation)
+        {
             _spell.ActivateSpell();
+            _animator.SetTrigger(VampirizmAnim);
+        }
     }
 
     public void TriggerCharacter(Collider2D collision)

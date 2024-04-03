@@ -18,8 +18,7 @@ public class Vampirizm : MonoBehaviour
     private Coroutine _vampirismCast;
     private Enemy _enemy;
     private float _damagePerSecond = 0.05f;
-
-    public bool _EnemyDetected { get; private set; }
+    private bool _isEnemyDetected;
 
     private void Awake()
     {
@@ -31,7 +30,7 @@ public class Vampirizm : MonoBehaviour
     {
         if (collision.TryGetComponent(out Enemy enemy))
         {
-            _EnemyDetected = true;
+            _isEnemyDetected = true;
             _enemy = enemy;
         }
     }
@@ -40,20 +39,20 @@ public class Vampirizm : MonoBehaviour
     {
         if (collision.TryGetComponent(out Enemy _))
         {
-            _EnemyDetected = false;
+            _isEnemyDetected = false;
         }
     }
 
     public void ActivateSpell()
     {
-        if (_EnemyDetected == true)
+        if (_isEnemyDetected == true)
         {
             if (Time.time >= _nextActionTime)
             {
                 _vampirismCast = StartCoroutine(ActivateVampirism(_enemy));
             }
         }
-        else if(_vampirismCast != null || _EnemyDetected == false)
+        else if (_vampirismCast != null)
         {
             StopCoroutine(_vampirismCast);
         }

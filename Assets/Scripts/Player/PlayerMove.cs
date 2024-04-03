@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerMoving : MonoBehaviour
+public class PlayerMove : MonoBehaviour
 {
     private const string _animRun = "Run";
     private const string _direction = "Horizontal";
@@ -13,6 +13,7 @@ public class PlayerMoving : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private float _powerMovement = 10f;
     private float _horizontalMove = 0f;
+    private bool _isJump;
 
     private void Start()
     {
@@ -25,15 +26,16 @@ public class PlayerMoving : MonoBehaviour
 
         bool isMove = Input.GetKey(KeyCode.D);
         _animator.SetBool(_animRun, isMove);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _rigidbody2D.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
-        }
+        _isJump = Input.GetKeyDown(KeyCode.Space);
     }
 
     private void FixedUpdate()
     {
+        if (_isJump)
+        {
+            _rigidbody2D.AddForce(new Vector2(0, _jumpForce), ForceMode2D.Impulse);
+        }
+
         Vector2 targetVelocity = new Vector2(_horizontalMove * _powerMovement, _rigidbody2D.velocity.y);
         _rigidbody2D.velocity = targetVelocity;
     }
