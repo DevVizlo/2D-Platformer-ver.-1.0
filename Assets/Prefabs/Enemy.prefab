@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5642273472423608916}
   - component: {fileID: 2606982583698668880}
   - component: {fileID: 5844442900367749199}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,12 +103,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50c1b3f6fd5283449904ea5e503b06f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 0.99
-  _healthEnemy: 2
   _tookDamage: 1
   _healthBar: {fileID: 0}
   _receiveTargetBall: {fileID: 0}
   _ReceiveFireball: {fileID: 1035431332162205713, guid: 849b45802b17faf47aa116421b900c9a, type: 3}
+  Health: 0
 --- !u!114 &1084090608883035899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03940853102510f4995d08c0fe26a153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHealth: 0.99
+  _health: 0.99
 --- !u!114 &5642273472423608916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +215,7 @@ GameObject:
   - component: {fileID: 5500430924390485416}
   - component: {fileID: 3579261084205321379}
   - component: {fileID: 4468675532062823522}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +306,7 @@ GameObject:
   - component: {fileID: 9210495253937962542}
   - component: {fileID: 8194936567329782837}
   - component: {fileID: 7330910022654099129}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dbff81a3aa86a543b0c4249979fae97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enetity: {fileID: 1084090608883035899}
+  _cheracter: {fileID: 0}
 --- !u!114 &7330910022654099129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +395,7 @@ GameObject:
   - component: {fileID: 3247655209249150995}
   - component: {fileID: 2273782755434207505}
   - component: {fileID: 6397982545177757360}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

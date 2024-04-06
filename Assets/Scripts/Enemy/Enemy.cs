@@ -16,7 +16,9 @@ public class Enemy : MonoBehaviour
     public FireBallEnemy ReceiveFireball => _ReceiveFireball;
 
     private HealthCharacter _healthCheracter;
-    private float _hpDeath = 0.32f;
+    private float _hpDeath = 0.1f;
+
+    public float Health;
 
     private void Awake()
     {
